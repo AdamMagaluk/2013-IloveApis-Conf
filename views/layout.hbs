@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Phillips Hue Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Le styles -->
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/css/index.css" rel="stylesheet">
+
+  <!--[if lt IE 8]>
+    <script src="/js/json2.js"></script>
+  <![endif]-->
+
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="/js/html5shiv.js"></script>
+  <![endif]-->
+
+  <!-- Fav and touch icons
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+  <link rel="shortcut icon" href="../assets/ico/favicon.png">
+  -->
+
+  {{{block "stylesheets"}}}
+
+  </head>
+
+  <body>
+
+    <div class="container">
+
+      <div id="global-alert">
+        {{#if gError}}
+        <div class="alert alert-error"><button type="button" class="close" data-dismiss="alert">&times;</button>{{gError}}</div>
+        {{/if}}
+        {{#if gNotice}}
+        <div class="alert alert-info"><button type="button" class="close" data-dismiss="alert">&times;</button>{{gNotice}}</div>
+        {{/if}}
+        {{#if gSuccess}}
+        <div class="alert alert-success"><button type="button" class="close" data-dismiss="alert">&times;</button>{{gSuccess}}</div>
+        {{/if}}
+      </div>
+
+      <div class="content-container">
+      {{{body}}}
+      </div> <!-- /container -->
+
+    </div><!-- x/body container -->
+
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.js"></script>
+    
+    {{{block "scripts"}}}
+
+  </body>
+</html>

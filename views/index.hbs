@@ -1,0 +1,34 @@
+
+<div class='main well'>
+  <div class="ui-state">
+    <p class="ui-unconnected">Not Connected </p>
+    <p class="ui-connected">Connected </p>
+  </div>
+
+  <h1 id="title"></h1>
+
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="input-group">
+        <input id="query" type="text" class="form-control input-lg">
+        <span class="input-group-btn">
+          <button id="btn-go"  style="width:150px" class="btn btn-success input-lg" type="button">Go!</button>
+        </span>
+      </div><!-- /input-group -->
+    </div><!-- /.col-lg-6 -->
+  </div><!-- /.row -->
+
+
+  <div class="row">
+    <div class="col-md-6"> <ul class="positive-tweets"> </ul> </div>
+    <div class="col-md-6"> <ul class="negitive-tweets"> </ul> </div>
+  </div>
+<div>
+
+
+{{#extend "scripts"}}
+  <script src="/js/engine.io.js"></script>
+  <script src="/js/handlebars.runtime.js"></script>
+  <script src="/js/dist/hbs-partials.js"></script>
+  <script src="/js/main.js"></script>
+{{/extend}}

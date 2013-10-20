@@ -9,6 +9,9 @@
   "author": "",
   "license": "BSD",
   "dependencies": {
-    "hbs": "~2.4.0"
+    "hbs": "~2.4.0",
+    "grunt": "~0.4.1",
+    "grunt-contrib-handlebars": "~0.5.11",
+    "grunt-contrib-jshint": "~0.6.4"
   }
 }
