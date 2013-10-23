@@ -1,9 +1,13 @@
 var util = require('util')
   , engine = require('engine.io')
   , async = require('async')
+  , hue = require("node-hue-api")
   , T = require('./twit')
   , analyzeTweet = require('./sentiment')
   , color = require('./color')
+
+var HueApi = hue.HueApi
+  , lightState = hue.lightState;
 
 function parseJSON(data){
   try{
@@ -34,7 +38,12 @@ function Server(http,opts){
     initialQuerySize : 50,
     returnLength : 10,
     maxLength : 50,
-    updateInterval : 1500 // ms
+    updateInterval : 1500, // ms
+    hueHost : process.env.HUE_HOST,
+    hueUser : process.env.HUE_USER,
+    hueLevel : 1,
+    hueLight : 4,
+    hueUpdateInterval : 1500
   };
 
   this._server = engine.attach(http);
@@ -60,6 +69,12 @@ function Server(http,opts){
 
   this.tweets = [];
   this._stream = null;
+
+
+  this.lastHueUpdate = new Date().getTime();
+  this.hue = new HueApi(this.opts.hueHost,this.opts.hueUser);
+
+  this.lightOff();
 };
 
 Server.prototype.onConnection = function(socket) {
@@ -137,7 +152,6 @@ Server.prototype.processTweets = function(tweets) {
 
   // Reclcmood
   self.calcMood();
-
   //console.log('process ' + tweets.length + ' all ' + self.tweets.length,positive.length,negitive.length);
 };
 
@@ -159,11 +173,37 @@ Server.prototype.calcMood = function() {
   this._state.mood.hue = c.hue;
   this._state.mood.rgb = c.rgb;
   this._state.mood.hexColor = c.hexColor;
+
+  this.updateLight(this._state.mood.rgb);
 };
 
 Server.prototype.sendState = function(query) {
   this._state.lastUpdate = new Date().getTime();
   this._server.broadcast(JSON.stringify( { state : this._state } ));
+};
+
+
+Server.prototype.updateLight = function(rgb) {
+
+  var now = new Date().getTime();
+  if(now - this.lastHueUpdate < this.opts.hueUpdateInterval){
+    return;
+  }
+  
+  this.lastHueUpdate = now;
+  var h = this._state.mood.hue*360;
+
+  var state = lightState.create().transition(1).hsl(h,100,50).on();
+  this.hue.setLightState(this.opts.hueLight, state,function(err){
+    console.log(err)
+  }); 
+};
+
+Server.prototype.lightOff = function() {
+  var state = lightState.create().transition(0).off();
+  this.hue.setLightState(this.opts.hueLight, state,function(err){
+    console.log(err)
+  });
 };
 
 Server.prototype.startTwitterStream = function(query){

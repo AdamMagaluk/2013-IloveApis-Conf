@@ -1,17 +1,25 @@
 {
-  "name": "2013-10-IloveApis-Conf",
-  "version": "0.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "hue-mood",
+  "version": "0.0.1",
+  "description": "Express a twitter api through a hue bulb.",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": ""
   },
   "author": "",
   "license": "BSD",
   "dependencies": {
     "hbs": "~2.4.0",
-    "grunt": "~0.4.1",
+    "node-hue-api": "~0.2.2",
+    "extend": "~1.2.1",
+    "twit": "~1.1.11",
+    "sentiment": "~0.2.1",
+    "engine.io": "~0.7.9",
+    "express": "~3.4.3"
+  },
+  "devDependencies": {
+    "grunt-contrib-jshint": "~0.6.4",
     "grunt-contrib-handlebars": "~0.5.11",
-    "grunt-contrib-jshint": "~0.6.4"
+    "grunt": "~0.4.1"
   }
 }

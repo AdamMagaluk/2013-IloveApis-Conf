@@ -119,8 +119,9 @@ function moodToHue(x){
     x = 3;
   else if(x < -3)
     x = -3;
-    
-  return 0.055555*x+0.166665;
+
+  return 0.0651042*x+0.195312;
+  //return 0.055555*x+0.166665;
 }
 
 module.exports = convert;
