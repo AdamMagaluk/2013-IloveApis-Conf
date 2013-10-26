@@ -43,6 +43,15 @@ $(document).ready(function () {
   var socket = new eio.Socket();
   var reconnect = false;
   var lastQuery = '';
+  var lastIcon = '';
+
+  function  updateIcon(val) {
+    var icon = '/img/faces/'+moodIconNumber( val )+'.png';
+    if(lastIcon !== icon){
+      $icon.attr('src',icon);
+      lastIcon = icon;
+    }
+  }
 
   function onMessage(data) {
     try{
@@ -57,13 +66,11 @@ $(document).ready(function () {
         return;
 
       $title.html(msg.state.query);
-      $icon.attr('src','/img/faces/'+moodIconNumber( msg.state.mood.val )+'.png');
+      updateIcon(msg.state.mood.val);
 
       function makeTweetLi(t){
         return Templates.tweet(t);
       }
-
-      console.log(msg.state.tweets)
 
       $positiveList.html('');
       msg.state.tweets.positive.forEach(function(t){
@@ -118,8 +125,6 @@ $(document).ready(function () {
   
   $submit.click(function(e){
     var val = $input.val();
-    console.log('submit ' + val)
-
     if(val === lastQuery)
       return false;
 
