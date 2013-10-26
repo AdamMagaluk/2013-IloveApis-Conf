@@ -36,13 +36,13 @@ function Server(http,opts){
 
   this.opts = {
     initialQuerySize : 50,
-    returnLength : 10,
+    returnLength : 2,
     maxLength : 50,
     updateInterval : 1500, // ms
     hueHost : process.env.HUE_HOST,
     hueUser : process.env.HUE_USER,
-    hueLevel : 1,
-    hueLight : 4,
+    hueLevel : 100,
+    hueLight : Number(3 || process.env.HUE_BULB),
     hueUpdateInterval : 1500
   };
 

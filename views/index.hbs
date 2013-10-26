@@ -1,11 +1,27 @@
 
 <div class='main well'>
-  <div class="ui-state">
-    <p class="ui-unconnected">Not Connected </p>
-    <p class="ui-connected">Connected </p>
+  <div class="header row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <h1 class="title"></h1>
+      <img class="icon" width="100px" height="100px">
+      <br>
+    </div>
+    <div class="col-md-4"></div>
   </div>
 
-  <h1 id="title"></h1>
+  <div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+    
+    <div class="progress">
+      <div id="progressbar" class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
+      </div>
+    </div>
+
+  </div>
+  <div class="col-md-3"></div>
+  </div>
 
   <div class="row">
     <div class="col-lg-6">
@@ -20,13 +36,28 @@
 
 
   <div class="row">
-    <div class="col-md-6"> <ul class="positive-tweets"> </ul> </div>
-    <div class="col-md-6"> <ul class="negitive-tweets"> </ul> </div>
+    <div class="col-md-6">
+      <h2>Top Negitive Tweets</h2>
+      <ul class="positive-tweets"> </ul>
+    </div>
+    <div class="col-md-6">
+      <h2>Top Negitive Tweets</h2>
+      <ul class="negitive-tweets"> </ul>
+    </div>
   </div>
+
+
+  <div class="ui-state pull-right">
+    <p class="ui-unconnected">Not Connected </p>
+    <p class="ui-connected">Connected </p>
+  </div>
+
+
 <div>
 
 
 {{#extend "scripts"}}
+  <script src="/js/jqueryui.min.js"></script>
   <script src="/js/engine.io.js"></script>
   <script src="/js/handlebars.runtime.js"></script>
   <script src="/js/dist/hbs-partials.js"></script>

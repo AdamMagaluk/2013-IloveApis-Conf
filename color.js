@@ -115,12 +115,15 @@ function rgbToHex(r, g, b) {
 
 function moodToHue(x){
 
-  if(x > 3)
-    x = 3;
-  else if(x < -3)
-    x = -3;
+  var MAX = 3;
 
-  return 0.0651042*x+0.195312;
+  if(x > MAX)
+    x = MAX;
+  else if(x < (0-MAX))
+    x = (0-MAX);
+ 
+    return 0.833333-0.0555557*x; 
+  //return 0.0651042*x+0.195312;
   //return 0.055555*x+0.166665;
 }
 

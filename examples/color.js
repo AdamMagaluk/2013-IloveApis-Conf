@@ -24,11 +24,13 @@ function rgbToHsl(r, g, b){
 
 console.log( rgbToHsl(255,0,0) )
 console.log( rgbToHsl(0,255,0) )
+console.log( rgbToHsl(0,0,255) )
+
 
 
 function show(x){
   console.log(x,color(x))
 }
 
-[-10,-4,-3,-2,-1,0,1,2,3,4,5,6,7,8,9,10].forEach(show)
+// /[-10,-4,-3,-2,-1,0,1,2,3,4,5,6,7,8,9,10].forEach(show)
 
