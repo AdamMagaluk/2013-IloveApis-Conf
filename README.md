@@ -14,6 +14,8 @@ node app.js
 - **Router:** 10.0.0.1
   - user:admin
   - pass:abc123!
+  - ssid:philipsdemo
+  - wireless pass:elegantcartoon705
 
 - **Raspberry Pi:** 10.0.0.3
   - user:pi
