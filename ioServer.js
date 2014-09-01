@@ -96,18 +96,18 @@ Server.prototype.onClose = function(){
 
 Server.prototype.updateQuery = function(query) {
   var self = this;
-
+  
   self.stopTwitterStream();  
 
   //var d = new Date();
   //var sinceTimeStamp = d.getFullYear() + '-' + (d.getMonth()+1) + '-' + d.getDate()-1;
   T.get('search/tweets', { q: query, count: self.opts.initialQuerySize }, function(err, reply) {
     if(err)
-      return console.log(err)
+      return console.log(err, 123)
 
     async.map(reply.statuses,analyzeTweet,function(err,results){
       if(err)
-        return console.log(err);
+        return console.log(err, 321);
 
       self._state.query = query;
       self.tweets = [];
@@ -195,14 +195,16 @@ Server.prototype.updateLight = function(rgb) {
 
   var state = lightState.create().transition(1).hsl(h,100,50).on();
   this.hue.setLightState(this.opts.hueLight, state,function(err){
-    console.log(err)
+    if (err)
+      console.log(err)
   }); 
 };
 
 Server.prototype.lightOff = function() {
   var state = lightState.create().transition(0).off();
   this.hue.setLightState(this.opts.hueLight, state,function(err){
-    console.log(err)
+    if (err)
+      console.log(err)
   });
 };
 
