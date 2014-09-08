@@ -194,7 +194,7 @@ Server.prototype.updateLight = function(rgb) {
   var h = this._state.mood.hue*360;
 
   var state = lightState.create().transition(1).hsl(h,100,50).on();
-  this.hue.setLightState(this.opts.hueLight, state,function(err){
+  this.hue.setGroupState(this.opts.hueLight, state,function(err){
     if (err)
       console.log(err)
   }); 
@@ -202,7 +202,7 @@ Server.prototype.updateLight = function(rgb) {
 
 Server.prototype.lightOff = function() {
   var state = lightState.create().transition(0).off();
-  this.hue.setLightState(this.opts.hueLight, state,function(err){
+  this.hue.setGroupState(this.opts.hueLight, state,function(err){
     if (err)
       console.log(err)
   });
