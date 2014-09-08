@@ -42,7 +42,7 @@ function Server(http,opts){
     hueHost : process.env.HUE_HOST,
     hueUser : process.env.HUE_USER,
     hueLevel : 100,
-    hueLight : Number(3 || process.env.HUE_BULB),
+    hueLight : Number(0 || process.env.HUE_BULB),
     hueUpdateInterval : 1500
   };
 
