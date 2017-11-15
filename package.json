@@ -15,7 +15,7 @@
     "extend": "~1.2.1",
     "twit": "~1.1.11",
     "sentiment": "~0.2.1",
-    "engine.io": "~0.7.9",
+    "engine.io": "~3.1.4",
     "express": "~3.4.3",
     "async": "~0.2.9"
   },
