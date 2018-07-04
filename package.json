@@ -5,7 +5,9 @@
   "main": "app.js",
   "scripts": {
     "test": "",
-    "start": "node app.js"
+    "start": "node app.js",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "author": "",
   "license": "BSD",
@@ -17,7 +19,8 @@
     "sentiment": "~0.2.1",
     "engine.io": "~0.7.9",
     "express": "~3.4.3",
-    "async": "~0.2.9"
+    "async": "~0.2.9",
+    "snyk": "^1.88.1"
   },
   "devDependencies": {
     "grunt-contrib-jshint": "~0.6.4",
@@ -27,5 +30,6 @@
   "subdomain": "AdamMagaluk-2013-10-IloveApis-Conf",
   "engines": {
     "node": "0.10.x"
-  }
+  },
+  "snyk": true
 }
