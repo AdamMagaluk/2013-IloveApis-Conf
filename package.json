@@ -10,14 +10,14 @@
   "author": "",
   "license": "BSD",
   "dependencies": {
-    "hbs": "~2.4.0",
+    "hbs": "~4.0.1",
     "node-hue-api": "~0.2.2",
     "extend": "~1.2.1",
     "twit": "~1.1.11",
     "sentiment": "~0.2.1",
     "engine.io": "~0.7.9",
     "express": "~3.4.3",
-    "async": "~0.2.9"
+    "async": "~3.2.2"
   },
   "devDependencies": {
     "grunt-contrib-jshint": "~0.6.4",
