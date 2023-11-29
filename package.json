@@ -11,7 +11,7 @@
   "license": "BSD",
   "dependencies": {
     "hbs": "~2.4.0",
-    "node-hue-api": "~0.2.2",
+    "node-hue-api": "~2.0.0",
     "extend": "~1.2.1",
     "twit": "~1.1.11",
     "sentiment": "~0.2.1",
