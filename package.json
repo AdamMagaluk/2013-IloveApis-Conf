@@ -14,7 +14,7 @@
     "node-hue-api": "~0.2.2",
     "extend": "~1.2.1",
     "twit": "~1.1.11",
-    "sentiment": "~0.2.1",
+    "sentiment": "~1.0.1",
     "engine.io": "~0.7.9",
     "express": "~3.4.3",
     "async": "~0.2.9"
